@@ -14,7 +14,7 @@ public class combinationSort {
             stringList.add(sc.next());
         }
         sortString(stringList);
-        System.out.print(stringList);
+        //System.out.print(stringList);
 
     }
     public static void sortString(List<String> list){
@@ -28,12 +28,18 @@ public class combinationSort {
                 charMap.put(list.get(i).charAt(0),suffixString);
             }
         }
-        int indx=0;
+        List<String> L1=new ArrayList<>();
+        List<String> L2=new ArrayList<>();
         for(Character c:charMap.keySet()){
+            for(int i=0; i<charMap.get(c).size();i++){
+                L1.add(c+String.valueOf(charMap.get(c).get(i)));
+            }
             Collections.sort(charMap.get(c),Collections.reverseOrder());
             for(int i=0; i<charMap.get(c).size();i++){
-                list.set(indx++,c+String.valueOf(charMap.get(c).get(i)));
+                L2.add(c+String.valueOf(charMap.get(c).get(i)));
             }
         }
+        System.out.println(L1);
+        System.out.println(L2);
     }
 }
